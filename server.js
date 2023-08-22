@@ -134,6 +134,6 @@ const startStreaming = () => {
 });
 
 // Start the server
-server.listen(3000, () => {
+server.listen(3002, () => {
   console.log('Socket server listening on port 3000');
 });
