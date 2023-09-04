@@ -19,7 +19,6 @@ const videoStream = new PassThrough();
 
 // Set up Socket.IO
 const io = require('socket.io')(server, {
-  transports: [ 'websocket' ],
   cors: {
     origin: 'https://localhost:3001', // Replace with the appropriate client origin
     methods: ['GET', 'POST'],
@@ -100,8 +99,8 @@ io.on('connection', (socket) => {
 
 let command;
 // Function to start streaming to YouTube using FFmpeg
-const startStreaming = () => {
-  const rtmpUrl = "rtmp://live.twitch.tv/app/live_938994094_leJ6Skyqg8bdsWyia5YBXuQ1VkSb69"
+const startStreaming = (rtmpUrl) => {
+  // const rtmpUrl = "rtmp://live.twitch.tv/app/live_938994094_leJ6Skyqg8bdsWyia5YBXuQ1VkSb69"
   // const rtmpUrl = 'rtmp://a.rtmp.youtube.com/live2/8mg7-ze8d-b6ps-ck6t-5mur';
   // const rtmpUrl = "rtmps://live-api-s.facebook.com:443/rtmp/FB-122100403328001814-0-Aby4F71qXw4JlfAn"
   // const rtmpUrl = "rtmps://fa723fc1b171.global-contribute.live-video.net/sk_us-west-2_EjpVaJb4OyJe_dd3u67DhkmFuJzlLGoSrmFXcZ96xpz"
