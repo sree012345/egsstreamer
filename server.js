@@ -1,6 +1,6 @@
 const express = require('express');
 const fs = require('fs');
-const http = require('https');
+const http = require('http');
 const socketIO = require('socket.io');
 
 const ffmpeg = require('fluent-ffmpeg');
@@ -94,8 +94,8 @@ io.on('connection', (socket) => {
 
   videoStream.setMaxListeners(1000);
 
-  socket.on('startStreamingToYouTube',()=>{
-    startStreaming()
+  socket.on('startStreamingToYouTube',(rmtpurl)=>{
+    startStreaming(rmtpurl)
   })
 
 let command;
@@ -106,7 +106,7 @@ const startStreaming = (rtmpUrl) => {
   // const rtmpUrl = "rtmps://live-api-s.facebook.com:443/rtmp/FB-122100403328001814-0-Aby4F71qXw4JlfAn"
   // const rtmpUrl = "rtmps://fa723fc1b171.global-contribute.live-video.net/sk_us-west-2_EjpVaJb4OyJe_dd3u67DhkmFuJzlLGoSrmFXcZ96xpz"
   
-  console.log('Video Streaming Started');
+  console.log('Video Streaming Started',rtmpUrl);
   // Create an FFmpeg command and set the input stream
   command = spawn('ffmpeg', [
     '-i', // Input from stdin
