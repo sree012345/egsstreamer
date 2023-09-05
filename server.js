@@ -1,6 +1,6 @@
 const express = require('express');
 const fs = require('fs');
-const https = require('https');
+const http = require('http');
 const socketIO = require('socket.io');
 
 const ffmpeg = require('fluent-ffmpeg');
@@ -13,7 +13,7 @@ const app = express();
 
 app.use(cors());
 
-const server = https.createServer(app);
+const server = http.createServer(app);
 
 const videoStream = new PassThrough();
 
@@ -21,7 +21,7 @@ const videoStream = new PassThrough();
 const io = require('socket.io')(server,
   {
   cors: {
-    origin: 'http://localhost:3001', // Replace with the appropriate client origin
+    origin: 'https://localhost:3001', // Replace with the appropriate client origin
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
     credentials: true,
