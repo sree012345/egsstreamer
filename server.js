@@ -18,7 +18,9 @@ const server = http.createServer(app);
 const videoStream = new PassThrough();
 
 // Set up Socket.IO
-const io = require('socket.io')(server, {
+const io = require('socket.io')(server,
+  {
+  console.log("loggs"),
   cors: {
     origin: 'https://localhost:3001', // Replace with the appropriate client origin
     methods: ['GET', 'POST'],
