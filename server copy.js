@@ -1,6 +1,6 @@
 const express = require('express');
 const fs = require('fs');
-const https = require('https');
+const http = require('http');
 const socketIO = require('socket.io');
 
 const ffmpeg = require('fluent-ffmpeg');
@@ -13,7 +13,7 @@ const app = express();
 
 app.use(cors());
 
-const server = https.createServer(app);
+const server = http.createServer(app);
 
 const videoStream = new PassThrough();
 
