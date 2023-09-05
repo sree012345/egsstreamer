@@ -21,7 +21,7 @@ const videoStream = new PassThrough();
 const io = require('socket.io')(server,
   {
   cors: {
-    origin: 'https://localhost:3001', // Replace with the appropriate client origin
+    origin: 'http://localhost:3001', // Replace with the appropriate client origin
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
     credentials: true,
