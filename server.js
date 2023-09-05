@@ -20,13 +20,13 @@ const videoStream = new PassThrough();
 // Set up Socket.IO
 const io = require('socket.io')(server,
   {
-  cors: {
-    origin: 'https://localhost:3001', // Replace with the appropriate client origin
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
-    credentials: true,
-  },
-});
+  // cors: {
+  //   origin: 'https://localhost:3001', // Replace with the appropriate client origin
+  //   methods: ['GET', 'POST'],
+  //   allowedHeaders: ['Content-Type'],
+  //   credentials: true,
+  // },
+},console.log("conneting"));
 
 // Event triggered when a client connects
 io.on('connection', (socket) => {
