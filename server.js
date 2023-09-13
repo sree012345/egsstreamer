@@ -15,7 +15,7 @@ app.use(cors());
 
 const server = http.createServer(app);
 
-const videoStream = new PassThrough();
+let videoStream;
 
 // Set up Socket.IO
 const io = require('socket.io')(server,
@@ -32,6 +32,7 @@ const io = require('socket.io')(server,
 io.on('connection', (socket) => {
   console.log('New client connected');
   // Event triggered when the client disconnects
+  videoStream = new PassThrough();
   socket.on('disconnect', () => {
     console.log('Client disconnected');
     videoStream.end();
