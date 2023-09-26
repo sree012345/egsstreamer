@@ -21,7 +21,7 @@ let videoStream;
 const io = require('socket.io')(server,
   {
   cors: {
-    origin: 'https://devapp.egame-studio.com', // Replace with the appropriate client origin
+    origin: ['https://devapp.egame-studio.com','https://demoapp.egame-studio.com'], // Replace with the appropriate client origin
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type'],
     credentials: true,
